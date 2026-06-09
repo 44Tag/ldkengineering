@@ -57,8 +57,8 @@
   --border: oklch(0.24 0 0);
   --card: oklch(0.04 0 0);
   --card-foreground: oklch(0.96 0 0);
-  --accent: oklch(0.72 0.17 55); /* burnt orange */
-  --accent-foreground: oklch(0.08 0 0);
+  --accent: oklch(0.42 0.09 255); /* LDK navy blue */
+  --accent-foreground: oklch(0.99 0 0);
   --radius: 0px;
 }
 
@@ -70,7 +70,7 @@
   --border: oklch(0.82 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.1 0 0);
-  --accent: oklch(0.62 0.19 50);
+  --accent: oklch(0.35 0.1 255);
   --accent-foreground: oklch(0.99 0 0);
 }
 
