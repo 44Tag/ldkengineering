@@ -13,6 +13,12 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
+import {
+  organizationSchema,
+  localBusinessSchema,
+  websiteSchema,
+  jsonLdScript,
+} from "../lib/schema";
 
 function NotFoundComponent() {
   return (
@@ -103,6 +109,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=author@400,500,600,700&display=swap",
       },
+    ],
+    scripts: [
+      jsonLdScript({
+        "@context": "https://schema.org",
+        "@graph": [
+          organizationSchema(),
+          localBusinessSchema(),
+          websiteSchema(),
+        ],
+      }),
     ],
   }),
   shellComponent: RootShell,

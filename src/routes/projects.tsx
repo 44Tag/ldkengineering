@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { projects, type Sector } from "@/data/projects";
+import { jsonLdScript, breadcrumbSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -12,6 +13,45 @@ export const Route = createFileRoute("/projects")({
         content:
           "Selected structural and civil engineering projects by LDK Inc — healthcare, government, commercial, industrial and infrastructure across South Africa.",
       },
+    ],
+    scripts: [
+      jsonLdScript({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "/projects#webpage",
+        url: "/projects",
+        name: "Projects — Lewis & De Kroon Inc",
+        description:
+          "Selected structural and civil engineering projects by LDK Inc — healthcare, government, commercial, industrial and infrastructure across South Africa.",
+        isPartOf: { "@id": "/#website" },
+        about: { "@id": "/#organization" },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: projects.map((p, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "CreativeWork",
+              name: p.name,
+              description: p.blurb,
+              locationCreated: {
+                "@type": "Place",
+                name: p.location,
+                address: { addressLocality: p.location, addressCountry: "ZA" },
+              },
+              dateCreated: p.year.includes("–") ? undefined : p.year,
+              image: p.image,
+              about: p.sector,
+            },
+          })),
+        },
+      }),
+      jsonLdScript(
+        breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Projects", url: "/projects" },
+        ])
+      ),
     ],
   }),
   component: ProjectsPage,

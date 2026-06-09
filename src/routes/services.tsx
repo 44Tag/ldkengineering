@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Building2, HardHat, ClipboardList, FileSearch, ArrowUpRight } from "lucide-react";
+import { webpageSchema, breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -10,6 +11,78 @@ export const Route = createFileRoute("/services")({
         content:
           "LDK delivers structural engineering, civil engineering, project management and feasibility studies for healthcare, government and commercial clients.",
       },
+    ],
+    scripts: [
+      jsonLdScript({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "/services#webpage",
+        url: "/services",
+        name: "Services — Lewis & De Kroon Inc",
+        description:
+          "LDK delivers structural engineering, civil engineering, project management and feasibility studies for healthcare, government and commercial clients.",
+        isPartOf: { "@id": "/#website" },
+        about: { "@id": "/#organization" },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@type": "Service",
+                name: "Structural Engineering",
+                description:
+                  "Concept-to-completion structural design for buildings, bridges and hospitals in reinforced concrete, structural steel and composite systems.",
+                provider: { "@id": "/#organization" },
+                areaServed: { name: "Western Cape, South Africa" },
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@type": "Service",
+                name: "Civil Engineering",
+                description:
+                  "Bulk and reticulated infrastructure — roads, stormwater, sewerage, water reticulation, earthworks and site development.",
+                provider: { "@id": "/#organization" },
+                areaServed: { name: "Western Cape, South Africa" },
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              item: {
+                "@type": "Service",
+                name: "Project Management & Contract Admin",
+                description:
+                  "End-to-end programme control and JBCC/GCC contract administration on behalf of the employer.",
+                provider: { "@id": "/#organization" },
+                areaServed: { name: "Western Cape, South Africa" },
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 4,
+              item: {
+                "@type": "Service",
+                name: "Feasibility Studies & Reports",
+                description:
+                  "Independent technical reports, condition assessments and due diligence for owners, insurers and government.",
+                provider: { "@id": "/#organization" },
+                areaServed: { name: "Western Cape, South Africa" },
+              },
+            },
+          ],
+        },
+      }),
+      jsonLdScript(
+        breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+        ])
+      ),
     ],
   }),
   component: ServicesPage,

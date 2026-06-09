@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { webpageSchema, breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -10,6 +11,22 @@ export const Route = createFileRoute("/about")({
         content:
           "Lewis & De Kroon Inc is a Cape Town structural and civil engineering consultancy founded in 1984. Meet the team and our practice values.",
       },
+    ],
+    scripts: [
+      jsonLdScript(
+        webpageSchema(
+          "/about",
+          "About — Lewis & De Kroon Inc",
+          "Lewis & De Kroon Inc is a Cape Town structural and civil engineering consultancy founded in 1984. Meet the team and our practice values.",
+          "AboutPage"
+        )
+      ),
+      jsonLdScript(
+        breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "About", url: "/about" },
+        ])
+      ),
     ],
   }),
   component: AboutPage,
