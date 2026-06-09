@@ -36,9 +36,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-8">
         <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="grid h-9 w-9 place-items-center border border-foreground font-display text-sm font-semibold">
-            LDK
-          </span>
+          <img src={ldkLogo.url} alt="LDK — Lewis & De Kroon Inc" className="h-10 w-10 object-contain" />
           <span className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground sm:block">
             Lewis &amp; De Kroon Inc
           </span>
