@@ -110,6 +110,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=author@400,500,600,700&display=swap",
       },
     ],
+    scripts: [
+      jsonLdScript({
+        "@context": "https://schema.org",
+        "@graph": [
+          organizationSchema(),
+          localBusinessSchema(),
+          websiteSchema(),
+        ],
+      }),
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
