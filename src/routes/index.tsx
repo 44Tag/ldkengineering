@@ -3,6 +3,7 @@ import { ArrowUpRight, Building2, HardHat, ClipboardList, FileSearch, ArrowRight
 import heroImg from "@/assets/hero-structure.jpg";
 import { projects } from "@/data/projects";
 import { Section, SectionLabel } from "@/components/site/Section";
+import { webpageSchema, jsonLdScript } from "@/lib/schema";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -13,6 +14,15 @@ export const Route = createFileRoute("/")({
         content:
           "LDK Inc — Cape Town structural and civil engineering consultants. Healthcare, government and commercial projects across South Africa since 1984.",
       },
+    ],
+    scripts: [
+      jsonLdScript(
+        webpageSchema(
+          "/",
+          "Lewis & De Kroon Inc — Structural & Civil Engineering, Cape Town",
+          "LDK Inc — Cape Town structural and civil engineering consultants. Healthcare, government and commercial projects across South Africa since 1984."
+        )
+      ),
     ],
   }),
   component: Home,

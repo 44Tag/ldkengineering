@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Mail, Phone, MapPin, Clock, Download, Check } from "lucide-react";
+import { webpageSchema, breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -11,6 +12,22 @@ export const Route = createFileRoute("/contact")({
         content:
           "Get in touch with LDK Inc — structural and civil engineering consultants in Cape Town. +27 21 423 9090 · info@ldk.co.za",
       },
+    ],
+    scripts: [
+      jsonLdScript(
+        webpageSchema(
+          "/contact",
+          "Contact — Lewis & De Kroon Inc",
+          "Get in touch with LDK Inc — structural and civil engineering consultants in Cape Town. +27 21 423 9090 · info@ldk.co.za",
+          "ContactPage"
+        )
+      ),
+      jsonLdScript(
+        breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Contact", url: "/contact" },
+        ])
+      ),
     ],
   }),
   component: ContactPage,
