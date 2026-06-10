@@ -1,8 +1,5 @@
 {
   "buildCommand": "vite build",
   "outputDirectory": ".output/public",
-  "framework": "other",
-  "serverFunctions": {
-    "directory": ".output/server"
-  }
+  "framework": "other"
 }
