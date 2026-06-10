@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import aboutHero from "@/assets/hero-structure.jpg";
-import ecsaLogo from "@/assets/memberships/ECSA.png";
-import saiceLogo from "@/assets/memberships/SAICE.png";
-import cesaLogo from "@/assets/memberships/CESA.png";
-import isoLogo from "@/assets/memberships/ISO.png";
+import ecsaLogo from "@/assets/Memberships/ECSA.png";
+import saiceLogo from "@/assets/Memberships/SAICE.png";
+import cesaLogo from "@/assets/Memberships/CESA.png";
+import isoLogo from "@/assets/Memberships/ISO.png";
 import { webpageSchema, breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 
 export const Route = createFileRoute("/about")({
