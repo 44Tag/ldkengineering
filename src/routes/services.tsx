@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Building2, HardHat, ClipboardList, FileSearch, ArrowUpRight } from "lucide-react";
+import { Building2, HardHat, ClipboardList, FileSearch, ZapIcon, FanIcon, ArrowUpRight } from "lucide-react";
+import servicesHero from "@/assets/project-commercial.jpg";
 import { webpageSchema, breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 
 export const Route = createFileRoute("/services")({
@@ -90,55 +91,57 @@ export const Route = createFileRoute("/services")({
 
 const services = [
   {
-    icon: Building2,
+    icon: ZapIcon,
     code: "S.01",
-    title: "Structural Engineering",
+    title: "Electrical Engineering",
     blurb:
-      "Concept-to-completion structural design for buildings, bridges and hospitals in reinforced concrete, structural steel and composite systems.",
+      "Expert design and implementation of robust electrical infrastructure for healthcare facilities, public buildings, commercial developments, and large-scale institutional projects across South Africa.",
     deliverables: [
-      "Concept and scheme design",
-      "Detailed structural drawings & bar bending schedules",
-      "Specifications and bills of quantity input",
-      "Site inspections and as-built certificates",
+      "Medium and low voltage (MV/LV) distribution networks and reticulation",
+      "Interior, exterior, emergency, and specialist lighting design",
+      "Substation design, transformers, and power distribution planning",
+      "Standby generators, UPS systems, and renewable energy integration (solar PV & hybrid solutions)",
+      "Earthing, lightning protection, and surge suppression systems",
     ],
   },
   {
-    icon: HardHat,
+    icon: FanIcon,
     code: "S.02",
-    title: "Civil Engineering",
+    title: "Mechanical Engineering",
     blurb:
-      "Bulk and reticulated infrastructure — roads, stormwater, sewerage, water reticulation, earthworks and site development.",
+      "Specialised HVAC, ventilation, and piped services engineered for high-performance environments, particularly hospitals, laboratories, commercial complexes, and heritage-sensitive installations.",
     deliverables: [
-      "Site investigations and geotechnical interpretation",
-      "Road, drainage and earthworks design",
-      "Service reticulation layouts",
-      "Construction monitoring",
+      "Air conditioning, mechanical ventilation, and smoke control systems (HVAC)",
+      "Medical gas pipelines, hospital services, and specialised piped systems",
+      "Fire protection, suppression, and life-safety systems",
+      "Energy-efficient thermal modelling, CFD analysis, and sustainability solutions",
+      "Steam, hot water, and central plant systems",
     ],
   },
   {
     icon: ClipboardList,
     code: "S.03",
-    title: "Project Management & Contract Admin",
+    title: "Contract Administration & Site Monitoring",
     blurb:
-      "End-to-end programme control and JBCC/GCC contract administration on behalf of the employer.",
+      "Professional on-site oversight, quality assurance, and contract management to ensure MEP installations meet design intent, SANS standards, and client expectations.",
     deliverables: [
-      "Procurement strategy & tender documentation",
-      "Programme and cost monitoring",
-      "Site meetings, instructions and payment certificates",
-      "Final account close-out",
+      "Tender documentation, bills of quantities, and technical specifications",
+      "Regular site inspections, quality control, and compliance monitoring",
+      "Testing, commissioning, witnessing, and handover procedures",
+      "As-built documentation, O&M manuals, and close-out certification",
     ],
   },
   {
     icon: FileSearch,
     code: "S.04",
-    title: "Feasibility Studies & Reports",
+    title: "Feasibility Studies & Technical Audits",
     blurb:
-      "Independent technical reports, condition assessments and due diligence for owners, insurers and government.",
+      "Independent technical due diligence, condition assessments, and optimisation studies for existing MEP installations, supporting informed decision-making for government, healthcare, and private clients.",
     deliverables: [
-      "Structural condition assessments",
-      "Forensic investigations",
-      "Pre-acquisition technical due diligence",
-      "Public-sector feasibility reports",
+      "MEP plant condition assessments and remaining life-cycle analysis",
+      "Rational fire engineering designs and compliance reports",
+      "Energy efficiency audits, Green Star / SANS 204/10400-XA support, and optimisation recommendations",
+      "Pre-investment feasibility studies and technical due diligence reports",
     ],
   },
 ];
@@ -146,10 +149,22 @@ const services = [
 function ServicesPage() {
   return (
     <>
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-[1400px] px-5 pb-12 pt-16 md:px-8 md:pb-20 md:pt-24">
+      <section className="relative border-b border-border">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={servicesHero}
+            alt="Commercial engineering site at construction stage with structural scaffolding and site cranes"
+            width={1920}
+            height={1280}
+            decoding="async"
+            loading="eager"
+            className="h-full w-full object-cover opacity-20 img-optim"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/90 to-background/95" />
+        </div>
+        <div className="relative mx-auto max-w-[1400px] px-5 pb-12 pt-16 md:px-8 md:pb-20 md:pt-24">
           <div className="eyebrow">Index / Services</div>
-          <h1 className="headline mt-6">
+          <h1 className="headline mt-6 reveal">
             Four disciplines.<br />
             <span className="text-accent">One engineering team.</span>
           </h1>
@@ -157,6 +172,88 @@ function ServicesPage() {
             We keep the structure of the firm deliberately small. Every project is staffed by senior
             engineers from brief to completion.
           </p>
+        </div>
+      </section>
+
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-24">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-7">
+              <p className="max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Our services are built for clients who need accountable engineering support on complex and highly regulated projects. We bring technical rigour to every contract, from detailed electrical and mechanical design to feasibility studies, technical audits and on-site contract administration.
+              </p>
+              <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                We serve healthcare, government, commercial, hospitality and industrial clients across South Africa. That means we understand the practical requirements of MEP design, compliance with SANS standards, and the coordination needed to integrate with architectural, structural and civil scopes.
+              </p>              <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Explore our <Link to="/projects" className="font-semibold text-foreground underline decoration-accent underline-offset-2 hover:text-accent">projects</Link> to see how these services are delivered in real buildings, or learn more <Link to="/about" className="font-semibold text-foreground underline decoration-accent underline-offset-2 hover:text-accent">about the firm</Link> that stands behind every design.
+              </p>            </div>
+            <aside className="rounded-[2rem] border border-border bg-background p-8 lg:col-span-5">
+              <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Market focus
+              </div>
+              <h2 className="mt-5 font-display text-3xl font-medium tracking-tight">Sector experience</h2>
+              <ul className="mt-8 space-y-4 text-sm text-foreground">
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Hospitals, medical centres and laboratory facilities
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Government, civic buildings and institutional campuses
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Hotels, retail precincts and commercial towers
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Plantrooms, service upgrades and complex refurbishments
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-24">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+            <div>
+              <div className="eyebrow">How we engineer projects</div>
+              <h2 className="mt-6 font-display text-4xl font-medium tracking-tight md:text-5xl">
+                A successful engineering project depends on clarity, coordination and accountability.
+              </h2>
+              <p className="mt-8 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Good engineering is not only about strong calculations; it's about making the complex predictable. We structure every project around design coordination, risk management and constructability so consultants, contractors and clients share the same technical basis.
+              </p>
+              <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Our experience on live hospitals, major civic works and commercial developments helps us identify the critical details early, reduce rework, and support handover with clear, signed documentation.
+              </p>
+            </div>
+            <aside className="rounded-[2rem] border border-border bg-background p-8">
+              <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Project delivery
+              </div>
+              <ul className="mt-8 space-y-4 text-sm text-foreground">
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Senior engineers directly involved from concept through completion
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Interface management between civil, structural, electrical and mechanical scopes
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Clear handover records, testing and O&amp;M documentation
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Feasibility, compliance, and life-cycle thinking for every investment
+                </li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </section>
 
@@ -168,7 +265,7 @@ function ServicesPage() {
                 {s.code} / 0{idx + 1}.04
               </div>
               <s.icon size={36} strokeWidth={1.5} className="mt-8 text-accent" />
-              <h2 className="mt-8 font-display text-4xl font-medium leading-tight tracking-tight md:text-5xl">
+              <h2 className="mt-8 font-display uppercase tracking-wider text-4xl font-medium leading-tight tracking-tight md:text-5xl">
                 {s.title}
               </h2>
             </div>

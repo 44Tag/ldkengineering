@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { reportError } from "../lib/error-reporting";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
 import {
@@ -46,7 +46,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
@@ -86,14 +86,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lewis & De Kroon Inc — Structural & Civil Engineering, Cape Town" },
+      { title: "Lewis & De Kroon Inc, Structural & Civil Engineering, Cape Town" },
       {
         name: "description",
         content:
-          "Lewis & De Kroon Inc (LDK) — Structural and civil engineering consultants in Cape Town, delivering healthcare, government and commercial projects across South Africa.",
+          "Lewis & De Kroon Inc (LDK), Structural and civil engineering consultants in Cape Town, delivering healthcare, government and commercial projects across South Africa.",
       },
       { name: "author", content: "Lewis & De Kroon Inc" },
-      { property: "og:title", content: "Lewis & De Kroon Inc — Structural & Civil Engineering" },
+      { property: "og:title", content: "Lewis & De Kroon Inc, Structural & Civil Engineering" },
       {
         property: "og:description",
         content:

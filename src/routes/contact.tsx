@@ -1,24 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Mail, Phone, MapPin, Clock, Download, Check } from "lucide-react";
+import contactHero from "@/assets/project-hospital.jpg";
 import { webpageSchema, breadcrumbSchema, jsonLdScript } from "@/lib/schema";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Lewis & De Kroon Inc" },
+      { title: "Contact, Lewis & De Kroon Inc" },
       {
         name: "description",
         content:
-          "Get in touch with LDK Inc — structural and civil engineering consultants in Cape Town. +27 21 423 9090 · info@ldk.co.za",
+          "Contact LDK Inc in Milnerton, Cape Town. Physical and postal addresses, office hours, and a direct enquiry form for engineering projects.",
       },
     ],
     scripts: [
       jsonLdScript(
         webpageSchema(
           "/contact",
-          "Contact — Lewis & De Kroon Inc",
-          "Get in touch with LDK Inc — structural and civil engineering consultants in Cape Town. +27 21 423 9090 · info@ldk.co.za",
+          "Contact, Lewis & De Kroon Inc",
+          "Get in touch with LDK Inc, structural and civil engineering consultants in Cape Town. +27 21 423 9090 · info@ldk.co.za",
           "ContactPage"
         )
       ),
@@ -43,13 +44,25 @@ function ContactPage() {
 
   return (
     <>
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-[1400px] px-5 pb-12 pt-16 md:px-8 md:pb-20 md:pt-24">
+      <section className="relative border-b border-border">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={contactHero}
+            alt="Cape Town engineering facility"
+            className="h-full w-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/90 to-background/95" />
+        </div>
+        <div className="relative mx-auto max-w-[1400px] px-5 pb-12 pt-16 md:px-8 md:pb-20 md:pt-24">
           <div className="eyebrow">Index / Contact</div>
           <h1 className="headline mt-6">
             Send the brief.<br />
             <span className="text-accent">We'll send the answer.</span>
           </h1>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Our office is based in Milnerton, Cape Town. If you’re planning a healthcare, government, commercial or industrial project,
+            we’re ready to review your brief and respond with clear next steps.
+          </p>
         </div>
       </section>
 
@@ -80,6 +93,7 @@ function ContactPage() {
                   <select
                     id="type"
                     name="type"
+
                     className="border border-border bg-background px-4 py-3 font-mono text-sm focus:border-accent focus:outline-none"
                   >
                     <option>Healthcare</option>
@@ -136,12 +150,23 @@ function ContactPage() {
             <ul className="space-y-6">
               <DetailRow icon={Phone} label="Telephone" value="+27 21 423 9090" />
               <DetailRow icon={Mail} label="Email" value="info@ldk.co.za" />
+              <div className="flex items-center gap-8 text-sm text-muted-foreground">
               <DetailRow
                 icon={MapPin}
                 label="Postal"
                 value={"PO Box 15088\nVlaeberg, Cape Town\n8018, South Africa"}
               />
-              <DetailRow icon={Clock} label="Hours" value="Mon–Fri · 08:00–17:00 SAST" />
+              <DetailRow
+                icon={MapPin}
+                label="Physical"
+                value={"Skyliner Ave\nTyggerhof\nMilnerton, Cape Town"}
+              />
+              </div>
+              <DetailRow
+                icon={Clock}
+                label="Hours"
+                value="Mon–Fri · 08:00–17:00 SAST\nSaturday Closed\nSunday Closed"
+              />
             </ul>
 
             <div className="mt-10 aspect-[4/3] overflow-hidden border border-border">

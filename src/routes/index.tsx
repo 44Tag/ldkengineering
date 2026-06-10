@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Building2, HardHat, ClipboardList, FileSearch, ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-structure.jpg";
+import heroImg from "@/assets/hero.jpg";
 import { projects } from "@/data/projects";
 import { Section, SectionLabel } from "@/components/site/Section";
 import { webpageSchema, jsonLdScript } from "@/lib/schema";
@@ -8,19 +8,19 @@ import { webpageSchema, jsonLdScript } from "@/lib/schema";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lewis & De Kroon Inc — Structural & Civil Engineering, Cape Town" },
+      { title: "Lewis & De Kroon Inc, Structural & Civil Engineering, Cape Town" },
       {
         name: "description",
         content:
-          "LDK Inc — Cape Town structural and civil engineering consultants. Healthcare, government and commercial projects across South Africa since 1984.",
+          "LDK Inc, Cape Town structural and civil engineering consultants. Healthcare, government and commercial projects across South Africa since 1984.",
       },
     ],
     scripts: [
       jsonLdScript(
         webpageSchema(
           "/",
-          "Lewis & De Kroon Inc — Structural & Civil Engineering, Cape Town",
-          "LDK Inc — Cape Town structural and civil engineering consultants. Healthcare, government and commercial projects across South Africa since 1984."
+          "Lewis & De Kroon Inc, Structural & Civil Engineering, Cape Town",
+          "LDK Inc, Cape Town structural and civil engineering consultants. Healthcare, government and commercial projects across South Africa since 1984."
         )
       ),
     ],
@@ -40,35 +40,35 @@ const services = [
   {
     icon: Building2,
     title: "Structural Engineering",
-    description: "Buildings, bridges, hospitals — concrete, steel and composite design.",
+    description: "Design that works. We create buildings and bridges that are safe, efficient, and built to perform for decades.",
   },
   {
     icon: HardHat,
     title: "Civil Engineering",
-    description: "Roads, drainage, earthworks and bulk infrastructure.",
+    description: "The infrastructure that makes projects work. Roads, drainage, utilities, earthworks—done right, and often invisible.",
   },
   {
     icon: ClipboardList,
     title: "Project Management",
-    description: "Contract administration, site supervision and programme control.",
+    description: "Keeping complex projects on track. Coordination, communication, and decision-making that prevents surprises.",
   },
   {
     icon: FileSearch,
     title: "Feasibility Studies",
-    description: "Technical reports, condition assessments and due diligence.",
+    description: "Independent analysis before you commit. Technical assessment that informs investment decisions with confidence.",
   },
 ];
 
 const testimonials = [
   {
     quote:
-      "LDK's structural team carried the technical risk on a live hospital site for four years and never missed a milestone. Outstanding engineering judgement.",
+      "They managed the technical risk on a live hospital site for four years without missing a milestone. That's not luck—that's genuine engineering discipline and foresight.",
     name: "Dr. M. Petersen",
     role: "Project Director, Western Cape Health Infrastructure",
   },
   {
     quote:
-      "Calm, precise and refreshingly direct. The drawings come right the first time, and that matters when you're building at scale.",
+      "Direct, precise, and calm under pressure. Their drawings come right the first time. That matters when you're coordinating multiple trades across a complex site.",
     name: "S. Adams",
     role: "Principal Architect, Adams & Partners",
   },
@@ -86,7 +86,7 @@ function Home() {
                 <span className="h-px w-8 bg-muted-foreground" />
                 Cape Town · Est. 1984
               </div>
-              <h1 className="headline mt-8">
+              <h1 className="headline mt-8 reveal">
                 Engineering<br />
                 South Africa's<br />
                 <span className="text-accent">built environment.</span>
@@ -124,7 +124,8 @@ function Home() {
               alt="Structural steel framework against the Cape Town sky"
               width={1920}
               height={1280}
-              className="absolute inset-0 h-full w-full object-cover opacity-90"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover opacity-90 img-optim"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/10 to-background/60 lg:bg-gradient-to-l lg:from-transparent lg:to-background/80" />
             <div className="absolute bottom-6 right-6 hidden border border-border bg-background/85 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur md:block">
@@ -157,12 +158,79 @@ function Home() {
         </div>
       </section>
 
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
+          <div className="grid gap-10 lg:grid-cols-[1.4fr_0.6fr]">
+            <div>
+              <div className="eyebrow mb-6">Why US</div>
+              <p className="max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                From feasibility to handover, we pair deep technical knowledge with practical project experience. Our team specialises in delivering engineering for live healthcare facilities, heritage government buildings, large commercial developments and essential infrastructure networks.
+              </p>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+                We help clients reduce risk, achieve compliance and control cost while meeting demanding programme and performance requirements. That means clear communication, robust documentation and a focus on delivering outcomes that last.
+              </p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
+                  <p className="text-sm leading-relaxed text-foreground">
+                    Senior engineers on every significant assignment
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
+                  <p className="text-sm leading-relaxed text-foreground">
+                    Healthcare, government, commercial and industrial expertise
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
+                  <p className="text-sm leading-relaxed text-foreground">
+                    Practical solutions for complex site and regulatory conditions
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
+                  <p className="text-sm leading-relaxed text-foreground">
+                    Realistic programme and cost guidance from day one
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-border bg-background p-8">
+              <h3 className="font-display text-3xl font-medium tracking-tight">Built for complex projects</h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                Our portfolio includes live hospital services, civic campus upgrades, commercial precincts and technical infrastructure where safety, quality and coordination are mission-critical.
+              </p>
+              <ul className="mt-8 space-y-4 text-sm text-foreground">
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Healthcare and laboratory engineering
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Government and public-sector infrastructure
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Commercial, hotel and mixed-use developments
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                  Structural strengthening and site development
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FEATURED PROJECTS */}
       <Section>
         <SectionLabel index="01 / Projects" label="Selected Work" />
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <h2 className="max-w-2xl font-display text-4xl font-medium tracking-tight md:text-6xl">
-            Engineering that performs under load — and under scrutiny.
+            Engineering that performs under load, and under scrutiny.
           </h2>
           <Link
             to="/projects"
@@ -184,9 +252,10 @@ function Home() {
                   src={p.image}
                   alt={p.name}
                   loading="lazy"
+                  decoding="async"
                   width={1200}
                   height={900}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 img-optim"
                 />
               </div>
               <div className="mt-5 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
@@ -243,7 +312,7 @@ function Home() {
                 "{t.quote}"
               </blockquote>
               <figcaption className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                {t.name} — {t.role}
+                {t.name}, {t.role}
               </figcaption>
             </figure>
           ))}
@@ -262,7 +331,7 @@ function Home() {
           </div>
           <div className="md:col-span-5">
             <p className="text-base text-muted-foreground md:text-lg">
-              We engage early — concept, feasibility or design phase — and stay engaged through
+              We engage early, concept, feasibility or design phase, and stay engaged through
               construction. Send a brief and we'll respond within two working days.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

@@ -1,8 +1,9 @@
-import hospital from "@/assets/project-hospital.jpg";
-import government from "@/assets/project-government.jpg";
-import commercial from "@/assets/project-commercial.jpg";
-import industrial from "@/assets/project-industrial.jpg";
-import bridge from "@/assets/project-bridge.jpg";
+import hospital from "@/assets/S hospital.avif";
+import government from "@/assets/hospital.jpg";
+import commercial from "@/assets/1.jpg";
+import industrial from "@/assets/building.png";
+import bridge from "@/assets/2.jpg";
+import khayaHospital from "@/assets/khaya hospital.jpg";
 
 export type Sector = "Healthcare" | "Government" | "Commercial" | "Industrial" | "Infrastructure";
 
@@ -20,7 +21,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "groote-schuur-hospital",
-    name: "Groote Schuur Hospital — Structural Upgrades",
+    name: "Groote Schuur Hospital | Structural Upgrades",
     location: "Observatory, Cape Town",
     sector: "Healthcare",
     year: "2019–2023",
@@ -80,7 +81,7 @@ export const projects: Project[] = [
     sector: "Healthcare",
     year: "2018",
     value: "R 22M",
-    image: hospital,
+    image: khayaHospital,
     blurb:
       "Public-sector clinic structural design with prefabricated concrete elements for rapid construction.",
   },

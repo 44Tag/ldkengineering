@@ -1,7 +1,7 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import ldkLogo from "@/assets/ldk-logo.png.asset.json";
+import ldkLogo from "@/assets/ldk logo.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -14,6 +14,11 @@ const nav = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const router = useRouter();
+  const pathname = router.state.location.pathname;
+
+  const isActive = (to: string) =>
+    pathname === to || (to !== "/" && pathname.startsWith(to));
 
   useEffect(() => {
     const saved = (typeof window !== "undefined" && localStorage.getItem("ldk-theme")) as
@@ -36,7 +41,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-8">
         <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={ldkLogo.url} alt="LDK — Lewis & De Kroon Inc" className="h-10 w-10 object-contain" />
+          <img src={ldkLogo} alt="Lewis & De Kroon Inc Logo" className="h-10 w-10 object-cover rounded-full" />
           <span className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground sm:block">
             Lewis &amp; De Kroon Inc
           </span>
@@ -47,9 +52,9 @@ export function Header() {
             <Link
               key={n.to}
               to={n.to}
-              className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "font-mono text-xs uppercase tracking-[0.15em] text-foreground" }}
-              activeOptions={{ exact: n.to === "/" }}
+              className={`font-mono text-xs uppercase tracking-[0.15em] transition-colors ${
+                isActive(n.to) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {n.label}
             </Link>
@@ -88,9 +93,9 @@ export function Header() {
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="border-b border-border py-4 font-mono text-xs uppercase tracking-[0.15em]"
-                activeProps={{ className: "border-b border-border py-4 font-mono text-xs uppercase tracking-[0.15em] text-accent" }}
-                activeOptions={{ exact: n.to === "/" }}
+                className={`border-b border-border py-4 font-mono text-xs uppercase tracking-[0.15em] ${
+                  isActive(n.to) ? "text-accent" : "text-foreground"
+                }`}
               >
                 {n.label}
               </Link>
