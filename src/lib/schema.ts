@@ -22,7 +22,7 @@ export function organizationSchema() {
     url: ORG_URL,
     logo: `${ORG_URL}#logo`,
     description:
-      "Cape Town structural and civil engineering consultants delivering healthcare, government and commercial projects across South Africa since 1984.",
+      "Structural and civil engineering consultants delivering healthcare, government and commercial projects across South Africa since 1984.",
     telephone: PHONE,
     email: EMAIL,
     foundingDate: "1984",
