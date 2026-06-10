@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import ldkLogo from "../assets/ldk logo.png?url";
 import { reportError } from "../lib/error-reporting";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
@@ -104,6 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: ldkLogo, type: "image/png" },
       { rel: "preconnect", href: "https://api.fontshare.com" },
       {
         rel: "stylesheet",
